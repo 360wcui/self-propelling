@@ -3,3 +3,5 @@
 #code/coverage/figuresDubins/
 #code/coverage/figures/
 pathdef.m
+.idea
+.DS_Store
