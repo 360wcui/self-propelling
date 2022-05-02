@@ -135,9 +135,9 @@ axh = gca; % use current axes
 line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
 line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
 % labels
-text(xmax*0.95, 0.25,'$r$','fontSize',fontSize, 'Interpreter','latex');
-text(rd, 0.35,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
-text(-2.5, ymax*0.8,'$f_{I}\left(r\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+text(xmax*0.95, -0.25,'$x$','fontSize',fontSize, 'Interpreter','latex');
+text(rd, -0.35,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
+text(-2.0, ymax*0.8,'$f_{I}(x)$','fontSize',0.9*fontSize, 'Interpreter','latex');
 set(gca, 'visible', 'off');
 % thight axis
 outerpos = axh.OuterPosition;
@@ -173,9 +173,9 @@ axh = gca; % use current axes
 line(get(axh,'XLim'), [0 0], 'Color', 'k', 'lineWidth', 2);
 line([0 0], get(axh,'YLim'), 'Color', 'k', 'lineWidth', 2);
 %lables
-text(-2.5, ymax*0.9,'$f_{h}\left(r\right)$','fontSize',fontSize*0.9, 'Interpreter','latex');
-text(xmax*0.9, 0.35,'$r$','fontSize',fontSize, 'Interpreter','latex');
-text(-rd/2-1.6, 0.8,'-$\frac{r_{d}}{2}$','fontSize',fontSize*1.2, 'Interpreter','latex')
+text(-2.0, ymax*0.9,'$f_{h}(x)$','fontSize',fontSize*0.9, 'Interpreter','latex');
+text(xmax*0.9, 0.55,'$x$','fontSize',fontSize, 'Interpreter','latex');
+text(-rd/2-1.0, 0.8,'-$\frac{r_{d}}{2}$','fontSize',fontSize*1.2, 'Interpreter','latex')
 %text(-rd/2-2.5, 0.45,'-$h_{0}$','fontSize',fontSize, 'Interpreter','latex')
 set(gca, 'visible', 'off');
 % thight axis
@@ -199,7 +199,7 @@ axis tight;
 close all; clear all;
 fontSize = 40;
 alpha = 0.5;
-rd = 3;
+rd = 2;
 b = 1;
 VI = @(r) (alpha/2)*(r-rd).^2.*(r-(rd*b)<=0);
 xmin = -1.5; xmax=7; ymin=-0.5; ymax=rd;
@@ -210,13 +210,13 @@ plot(r,VI(r),'k.','MarkerSize',15);
 axis([xmin xmax ymin ymax]);
 axh = gca; % use current axes
 % axis lines
-line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
-line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
+line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',1);
+line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',1);
 % labels
-text(xmax*0.8, -0.4,'$\left\Vert x\right\Vert$','fontSize',fontSize, 'Interpreter','latex');
-text(rd-1, -0.25,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
+text(xmax*0.85, -0.15,'$x$','fontSize',fontSize, 'Interpreter','latex');
+text(rd-1, -0.15,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
 %text(rd+1.6, 0.35,'$r_{0}$','fontSize',fontSize, 'Interpreter','latex');
-text(-2, ymax*0.9,'$V_{I}\left(x\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+text(0.2, ymax*0.9,'$V_{I}(x)$','fontSize',0.9*fontSize, 'Interpreter','latex');
 set(gca, 'visible', 'off');
 % thight axis
 outerpos = axh.OuterPosition;
@@ -237,9 +237,9 @@ patch([xmax-xO -yO; xmax-xO +yO; xmax 0.0], ...
 axis tight;
 
 %% Vh vehicle Domain Potential
-close all; clear all;
+close all; clear all; clc;
 fontSize = 40;
-beta= 12*0.05;
+beta= 8*0.05;
 rd = 2;
 b = 1;
 Vh = @(h) (beta/2)*((h+rd/2).^2).*(h-(-b*rd/2)>=0);
@@ -251,14 +251,18 @@ plot(r,Vh(r),'k.','MarkerSize',15);
 axis([xmin xmax ymin ymax]);
 axh = gca; % use current axes
 % axis lines
-line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',2);
-line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',2);
+line(get(axh,'XLim'), [0 0], 'Color', 'k','lineWidth',1);
+line([0 0], get(axh,'YLim'), 'Color', 'k','lineWidth',1);
 % labels
-text(xmax*0.2, -0.3,'$[[x - P_{\partial \Omega}\left(x\right)]]$','fontSize',fontSize*0.7, 'Interpreter','latex');
+% text(xmax*0.45, -0.3,'$[[x - P_{\partial \Omega}\left(x\right)]]$','fontSize',fontSize*0.7, 'Interpreter','latex');
+text(xmax*0.95, -0.2,'$x$','fontSize',fontSize*0.7, 'Interpreter','latex');
+
 %text(rd-1, -0.25,'$r_{d}$','fontSize',fontSize, 'Interpreter','latex');
-text(-rd/2-0.2, -0.4,'-$\frac{r_{d}}{2}$','fontSize',fontSize*1.0, 'Interpreter','latex')
+text(-rd/2, -0.2,'-$\frac{r_d}{2}$','fontSize',fontSize*1.0, 'Interpreter','latex')
 %text(rd+1.6, 0.35,'$r_{0}$','fontSize',fontSize, 'Interpreter','latex');
-text(-1.05, ymax*0.9,'$V_{h}\left(x\right)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+%text(-0.95, ymax*0.9,'$V_h(x)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+text(-0.75, ymax*0.9,'$V_h(x)$','fontSize',0.9*fontSize, 'Interpreter','latex');
+
 set(gca, 'visible', 'off');
 % thight axis
 outerpos = axh.OuterPosition;

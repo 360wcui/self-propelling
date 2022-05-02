@@ -11,7 +11,7 @@ extraArgs.a_I = 1; %(same as alpha: non zero slope in fI)
 extraArgs.a_h = 0; %(same as beta: non zero slope in fh)
 extraArgs.a_v = 0; %(vehicle-domain velocity alignment strength )
 extraArgs.tMax = 60;
-simulateDorsogna(true, true, extraArgs)
+% simulateDorsogna(true, true, extraArgs)
 %% 1.1 Static domain (avoidance off)
 extraArgs.N = 16;
 extraArgs.avoidance = false;

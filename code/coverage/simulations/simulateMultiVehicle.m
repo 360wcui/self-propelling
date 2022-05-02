@@ -21,7 +21,7 @@ end
 if isfield(extraArgs,'N')
     N = extraArgs.N;
 else
-    N = 16;
+    N = 5;
 end
 
 if isfield(extraArgs,'avoidance')
@@ -33,7 +33,7 @@ end
 if isfield(extraArgs,'domainType')
     domainType = extraArgs.domainType;
 else
-    domainType = 'triangle';
+    domainType = 'pentagon';
 end
 
 if isfield(extraArgs,'vd')
@@ -57,7 +57,7 @@ end
 if isfield(extraArgs, 'initialConfig')
     initialConfig = extraArgs.initialConfig;
 else
-    initialConfig = 'arrowPaper';
+    initialConfig = 'line';
 end
 
 if isfield(extraArgs,'c_al')
@@ -77,25 +77,25 @@ end
 if isfield(extraArgs, 'a_I')
     a_I = extraArgs.a_I;
 else
-    a_I = 1;
+    a_I = 2;
 end
 
 if isfield(extraArgs, 'a_h')
     a_h = extraArgs.a_h;
 else
-    a_h = 1;
+    a_h = 3;
 end
 
 if isfield(extraArgs, 'a_v')
     a_v = extraArgs.a_v;
 else
-    a_v = 1;
+    a_v = 2;
 end
 
 if isfield(extraArgs, 'tMax')
     tMax = extraArgs.tMax;
 else
-    tMax = 50;
+    tMax = 160;
 end
 
 if ~isfield(extraArgs, 'tailSize')
@@ -110,7 +110,7 @@ tm = TM;
 % setup speed limit
 tm.speedLimit = 5;%10
 % collision radius
-tm.cr = 2;
+tm.cr = 1;
 % safety time (it will be safe during the next st seconds)
 tm.safetyTime = 5;
 % maximum force for vehicles
@@ -204,7 +204,7 @@ f.Children.FontSize = 16;
 f.Position(1:2) = [100 100];
 f.Position(3:4) = [750 750];
 f.Color = 'white';
-scale = 10;
+scale = 4;
 xlim([min([vertX,vertY]) max([vertX,vertY])]*scale);
 ylim([min([vertX,vertY]) max([vertX,vertY])]*scale);
 
